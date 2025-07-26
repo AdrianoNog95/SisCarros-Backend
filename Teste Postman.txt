@@ -1,0 +1,6 @@
+POST http://localhost:8080/api/carro/save
+PUT http://localhost:8080/api/carro/update
+DELETE http://localhost:8080/api/carro/delete/(id que vc quer deletar)
+GET http://localhost:8080/api/carro/findAll
+GET http://localhost:8080/api/carro/findById
+
