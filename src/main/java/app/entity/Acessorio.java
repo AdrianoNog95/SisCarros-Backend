@@ -8,30 +8,24 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.CascadeType;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "carro")
+@Table(name = "acessorio")
 
-public class Carro {
+public class Acessorio {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id") //Nome do campo no banco de dados
     private long id;
     
-    @NotNull(message = "Nome do carro não pode ser nulo")
+    @NotNull(message = "Nome do acessório não pode ser nulo")
     @Column(length = 20)
     private String nome;
-        
-    //Relacionamento
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Marca marca;
-    
+
     
     //Getters e Setters
 	public long getId() {
@@ -49,16 +43,14 @@ public class Carro {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Marca getMarca() {
-		return marca;
-	}
-
-	public void setMarca(Marca marca) {
-		this.marca = marca;
-	}       
     
-        
-   
+    
+    
+    
+    
     
 }    
+    
+    
+    
+    

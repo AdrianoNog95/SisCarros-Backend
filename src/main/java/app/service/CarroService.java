@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import app.entity.Carro;
-import app.entity.Marca;
 import app.repository.CarroRepository;
 
 
@@ -27,46 +26,25 @@ public class CarroService {
     }
     
     
-    public String delete(long idCarro) {
-        this.carroRepository.deleteById(idCarro);        
-        return "Carro deletado com sucesso!";
+    public List<Carro> listAll(){
+        return this.carroRepository.findAll();
     }
     
-    
-    public List<Carro> findAll(){
-        List<Carro> lista = this.carroRepository.findAll();
-        return lista;
-    }
-        
     
     public Carro findById(long idCarro) {
         Carro carro = this.carroRepository.findById(idCarro).get();
         return carro;
     }
     
-    
-    public List<Carro> findByNome(String nome) {
-        return this.carroRepository.findByNome(nome);
-    }
-    
-    
-    public List<Carro> findByMarca(long idMarca) {
-        Marca marca = new Marca();
-        marca.setId(idMarca);
-	  	return this.carroRepository.findByMarca(marca);
-    }
-    
-    
-    public List<Carro> findAcimaAno(int ano){
-    	return this.carroRepository.findAcimaAno(ano);
-    }
+        
+    public String delete(long idCarro) {
+        this.carroRepository.deleteById(idCarro);        
+        return " deletado com sucesso!";
+    }    
     
     
     
-    
-    
-    
-    
+      
     
     
     

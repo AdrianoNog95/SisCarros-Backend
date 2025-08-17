@@ -13,20 +13,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.entity.Acessorio;
 import app.entity.Carro;
-import app.service.CarroService;
+import app.service.AcessorioService;
 
 @RestController
-@RequestMapping("/api/carro")
-public class CarroController {
+@RequestMapping("/api/acessorio")
+public class AcessorioController {
 
     @Autowired
-    private CarroService carroService;
+    private AcessorioService acessorioService;
     
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Carro carro) {
+    public ResponseEntity<String> save(@RequestBody Acessorio acessorio) {
         try {
-            String mensagem = this.carroService.save(carro);
+            String mensagem = this.acessorioService.save(acessorio);
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -35,9 +36,9 @@ public class CarroController {
     
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable long id) {
+    public ResponseEntity<String> update(@RequestBody Acessorio acessorio, @PathVariable long id) {
         try {
-            String mensagem = this.carroService.update(id, carro);
+            String mensagem = this.acessorioService.update(id, acessorio);
             return new ResponseEntity<String>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -46,9 +47,9 @@ public class CarroController {
     
     
     @GetMapping("/listAll")
-    public ResponseEntity<List<Carro>> listAll(){
+    public ResponseEntity<List<Acessorio>> listAll(){
         try {
-            List<Carro> lista = this.carroService.listAll();
+            List<Acessorio> lista = this.acessorioService.listAll();
             return new ResponseEntity<>(lista, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -56,21 +57,22 @@ public class CarroController {
     }
     
     
-    @GetMapping("/findById/{idCarro}")
-    public ResponseEntity<Carro> findById(@PathVariable long idCarro) { 
+    @GetMapping("/findById/{idAcessorio}")
+    public ResponseEntity<Acessorio> findById(@PathVariable long idAcessorio) { 
         try {
-            Carro carro = this.carroService.findById(idCarro);
-            return new ResponseEntity<>(carro, HttpStatus.OK);
+            Acessorio acessorio = this.acessorioService.findById(idAcessorio);
+            return new ResponseEntity<>(acessorio, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
     
-       
-    @DeleteMapping("/delete/{idCarro}")
-    public ResponseEntity<String> delete (@PathVariable long idCarro) {
+    
+          
+    @DeleteMapping("/delete/{idAcessorio}")
+    public ResponseEntity<String> delete (@PathVariable long idAcessorio) {
         try {
-            String mensagem = this.carroService.delete(idCarro);
+            String mensagem = this.acessorioService.delete(idAcessorio);
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -79,22 +81,9 @@ public class CarroController {
     
     
     
-    
-    
-    
-       
+         
     
 }  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

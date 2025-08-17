@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.entity.Carro;
-import app.service.CarroService;
+import app.entity.Marca;
+import app.service.MarcaService;
 
 @RestController
-@RequestMapping("/api/carro")
-public class CarroController {
+@RequestMapping("/api/marca")
+public class MarcaController {
 
     @Autowired
-    private CarroService carroService;
+    private MarcaService marcaService;
     
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Carro carro) {
+    public ResponseEntity<String> save(@RequestBody Marca marca) {
         try {
-            String mensagem = this.carroService.save(carro);
+            String mensagem = this.marcaService.save(marca);
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -35,9 +35,9 @@ public class CarroController {
     
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable long id) {
+    public ResponseEntity<String> update(@RequestBody Marca marca, @PathVariable long id) {
         try {
-            String mensagem = this.carroService.update(id, carro);
+            String mensagem = this.marcaService.update(id, marca);
             return new ResponseEntity<String>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -46,9 +46,9 @@ public class CarroController {
     
     
     @GetMapping("/listAll")
-    public ResponseEntity<List<Carro>> listAll(){
+    public ResponseEntity<List<Marca>> listAll(){
         try {
-            List<Carro> lista = this.carroService.listAll();
+            List<Marca> lista = this.marcaService.listAll();
             return new ResponseEntity<>(lista, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -56,21 +56,21 @@ public class CarroController {
     }
     
     
-    @GetMapping("/findById/{idCarro}")
-    public ResponseEntity<Carro> findById(@PathVariable long idCarro) { 
+    @GetMapping("/findById/{idMarca}")
+    public ResponseEntity<Marca> findById(@PathVariable long idMarca) { 
         try {
-            Carro carro = this.carroService.findById(idCarro);
-            return new ResponseEntity<>(carro, HttpStatus.OK);
+            Marca marca = this.marcaService.findById(idMarca);
+            return new ResponseEntity<>(marca, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
     
        
-    @DeleteMapping("/delete/{idCarro}")
-    public ResponseEntity<String> delete (@PathVariable long idCarro) {
+    @DeleteMapping("/delete/{idMarca}")
+    public ResponseEntity<String> delete (@PathVariable long idMarca) {
         try {
-            String mensagem = this.carroService.delete(idCarro);
+            String mensagem = this.marcaService.delete(idMarca);
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -78,10 +78,7 @@ public class CarroController {
     }
     
     
-    
-    
-    
-    
+       
        
     
 }  

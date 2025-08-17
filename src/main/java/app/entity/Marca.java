@@ -1,6 +1,6 @@
 package app.entity;
 
-import java.util.List;
+import javax.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,16 +23,13 @@ public class Marca {
     private long id;
     
     @Column(length = 20)
+    @NotNull(message = "Nome da marca não pode ser nulo")
     private String nome;
     
-    @Column(length = 30)
-    private String cnpj;
+    private String descricao;
     
-    //Relacionamento
-    @OneToMany(mappedBy = "marca")
-    private List<Carro> carros;
-    
-    
+     
+    //Getters and Setters    
     public long getId() {
         return id;
     }
@@ -50,24 +46,13 @@ public class Marca {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
+	public String getDescricao() {
+		return descricao;
+	}
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    } 
-
-    public List<Carro> getCarros() {
-        return carros;
-    }
-
-    public void setCarros(List<Carro> carros) {
-        this.carros = carros;
-    }
-    
-    
-    
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
     
     
     
