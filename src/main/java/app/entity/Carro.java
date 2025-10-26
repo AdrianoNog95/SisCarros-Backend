@@ -1,5 +1,6 @@
 package app.entity;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,8 +10,9 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.CascadeType;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,15 +24,19 @@ public class Carro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id") //Nome do campo no banco de dados
-    private long id;
+    private Long id;
     
-    @NotNull(message = "Nome do carro não pode ser nulo")
+    //@NotNull(message = "Nome do carro não pode ser nulo")
     @Column(length = 20)
     private String nome;
         
     //Relacionamento
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Marca marca;
+    
+    @ManyToMany
+    @JoinTable(name="carro_acessorio")
+    private List<Acessorio> acessorios;
     
     
     //Getters e Setters
@@ -56,8 +62,19 @@ public class Carro {
 
 	public void setMarca(Marca marca) {
 		this.marca = marca;
+	}
+
+	public List<Acessorio> getAcessorios() {
+		return acessorios;
+	}
+
+	public void setAcessorios(List<Acessorio> acessorios) {
+		this.acessorios = acessorios;
 	}       
     
+	
+	
+	
         
    
     

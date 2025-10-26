@@ -1,6 +1,6 @@
 package app.entity;
 
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,21 +20,21 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     
+    //@NotNull(message = "Nome da marca não pode ser nulo")
     @Column(length = 20)
-    @NotNull(message = "Nome da marca não pode ser nulo")
     private String nome;
     
     private String descricao;
     
      
     //Getters and Setters    
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import javax.validation.constraints.NotNull;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,19 +20,18 @@ public class Acessorio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id") //Nome do campo no banco de dados
-    private long id;
+    private Long id;
     
-    @NotNull(message = "Nome do acessório não pode ser nulo")
     @Column(length = 20)
     private String nome;
 
     
     //Getters e Setters
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -42,8 +41,7 @@ public class Acessorio {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-    
+	} 
     
     
     
