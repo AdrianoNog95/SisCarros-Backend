@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
-//import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
 
@@ -26,7 +26,7 @@ public class Carro {
     @Column(name="id") //Nome do campo no banco de dados
     private Long id;
     
-    //@NotNull(message = "Nome do carro não pode ser nulo")
+    @NotNull(message = "Nome do carro não pode ser nulo")
     @Column(length = 20)
     private String nome;
         
