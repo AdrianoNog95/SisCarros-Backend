@@ -14,6 +14,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -23,17 +24,18 @@ public class Carro {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id") //Nome do campo no banco de dados
     private Long id;
     
     @NotNull(message = "Nome do carro não pode ser nulo")
     @Column(length = 20)
     private String nome;
         
+     
     //Relacionamento
     @ManyToOne
     private Marca marca;
     
+       
     @ManyToMany
     @JoinTable(name="carro_acessorio")
     private List<Acessorio> acessorios;
@@ -70,7 +72,14 @@ public class Carro {
 
 	public void setAcessorios(List<Acessorio> acessorios) {
 		this.acessorios = acessorios;
-	}       
+	}
+
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
     
 	
 	

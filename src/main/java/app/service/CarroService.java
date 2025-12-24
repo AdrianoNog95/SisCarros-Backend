@@ -40,12 +40,16 @@ public class CarroService {
     public String delete(long idCarro) {
         this.carroRepository.deleteById(idCarro);        
         return " deletado com sucesso!";
-    }    
+    }
+    
+    
+    public List<Carro> findByNome(String nome){
+    	return this.carroRepository.findByNome(nome);
+    }
     
     
     
       
-    
-    
+       
     
 }

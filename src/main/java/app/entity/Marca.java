@@ -1,6 +1,5 @@
 package app.entity;
 
-//import javax.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,44 +23,44 @@ public class Marca {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
     
-    //@NotNull(message = "Nome da marca não pode ser nulo")
     @Column(length = 20)
     private String nome;
     
-    private String descricao;
+   	@OneToMany(mappedBy = "marca")
+   	@JsonIgnore
+    private List<Carro> carros;
+   
+    //Getters and Setters  
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Carro> getCarros() {
+		return carros;
+	}
+
+	public void setCarros(List<Carro> carros) {
+		this.carros = carros;
+	}
+
+		
+	
+}
     
      
-    //Getters and Setters    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
     
     
-    
-   
-    
-    
-}

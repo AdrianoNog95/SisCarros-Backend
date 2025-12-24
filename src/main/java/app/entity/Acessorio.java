@@ -19,7 +19,6 @@ public class Acessorio {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id") //Nome do campo no banco de dados
     private Long id;
     
     @Column(length = 20)

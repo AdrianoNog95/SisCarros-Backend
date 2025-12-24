@@ -52,13 +52,13 @@
         </dependency>
 
         <!-- Dependência do Spring Security -->
-        <dependency>
+         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Dependência do JWT Security -->
-        <dependency>
+        <!--<dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
             <version>0.11.5</version>
@@ -74,7 +74,7 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
             <version>0.11.5</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Hibernate Validator -->
         <dependency>
