@@ -19,7 +19,7 @@ public class CarroService {
     }
     
     
-    public String update(long id, Carro carro) {
+    public String update(Integer id, Carro carro) {
         carro.setId(id);
         this.carroRepository.save(carro);        
         return carro.getNome()+ " atualizado com sucesso!";
@@ -31,13 +31,13 @@ public class CarroService {
     }
     
     
-    public Carro findById(long idCarro) {
+    public Carro findById(Integer idCarro) {
         Carro carro = this.carroRepository.findById(idCarro).get();
         return carro;
     }
     
         
-    public String delete(long idCarro) {
+    public String delete(Integer idCarro) {
         this.carroRepository.deleteById(idCarro);        
         return " deletado com sucesso!";
     }

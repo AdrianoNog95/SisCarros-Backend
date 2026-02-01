@@ -13,41 +13,52 @@ import jakarta.persistence.Column;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "acessorio")
+@Table(name = "usuario")
 
-public class Acessorio {
+public class Usuario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(length = 20)
-    private String nome;
-
+    @Column(length = 10, unique = true, nullable = false)
+    private String username;
     
+    @Column(length = 20, nullable = false)	
+    private String password;
+
+	
     //Getters e Setters
     public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	} 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
     
     
-    
+ 
     
     
 }    
+    
     
     
     

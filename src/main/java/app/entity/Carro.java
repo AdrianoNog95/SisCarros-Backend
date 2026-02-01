@@ -24,7 +24,7 @@ public class Carro {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     
     @NotNull(message = "Nome do carro não pode ser nulo")
     @Column(length = 20)
@@ -39,45 +39,52 @@ public class Carro {
     @ManyToMany
     @JoinTable(name="carro_acessorio")
     private List<Acessorio> acessorios;
-    
-    
+
+
     //Getters e Setters
-	public long getId() {
+    public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 
 	public Marca getMarca() {
 		return marca;
 	}
 
+
 	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
+
 
 	public List<Acessorio> getAcessorios() {
 		return acessorios;
 	}
 
+
 	public void setAcessorios(List<Acessorio> acessorios) {
 		this.acessorios = acessorios;
 	}
-
+    
+    
+ 
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
 	
     

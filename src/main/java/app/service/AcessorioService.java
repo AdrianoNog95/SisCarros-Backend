@@ -19,10 +19,10 @@ public class AcessorioService {
     }
     
     
-    public String update(long id, Acessorio acessorio) {
-    	acessorio.setId(id);
-        this.acessorioRepository.save(acessorio);        
-        return acessorio.getNome()+ " atualizado com sucesso!";
+    public String update(Integer id, Acessorio acessorio) {
+        acessorio.setId(id);
+        this.acessorioRepository.save(acessorio);
+        return acessorio.getNome() + " atualizado com sucesso!";
     }
     
     
@@ -31,13 +31,13 @@ public class AcessorioService {
     }
     
     
-    public Acessorio findById(long idAcessorio) {
+    public Acessorio findById(Integer idAcessorio) {
     	Acessorio acessorio = this.acessorioRepository.findById(idAcessorio).get();
         return acessorio;
     }
     
         
-    public String delete(long idAcessorio) {
+    public String delete(Integer idAcessorio) {
         this.acessorioRepository.deleteById(idAcessorio);        
         return " deletado com sucesso!";
     }    

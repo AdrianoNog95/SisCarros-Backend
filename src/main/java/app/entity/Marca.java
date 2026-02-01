@@ -23,7 +23,7 @@ public class Marca {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     
     @Column(length = 20)
     private String nome;
@@ -33,11 +33,12 @@ public class Marca {
     private List<Carro> carros;
    
     //Getters and Setters  
-    public Long getId() {
+   	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -19,7 +19,7 @@ public class MarcaService {
     }
     
     
-    public String update(long id, Marca marca) {
+    public String update(Integer id, Marca marca) {
         marca.setId(id);
         this.marcaRepository.save(marca);        
         return marca.getNome()+ " atualizado com sucesso!";
@@ -31,13 +31,13 @@ public class MarcaService {
     }
     
     
-    public Marca findById(long idMarca) {
+    public Marca findById(Integer idMarca) {
         Marca marca = this.marcaRepository.findById(idMarca).get();
         return marca;
     }
     
         
-    public String delete(long idMarca) {
+    public String delete(Integer idMarca) {
         this.marcaRepository.deleteById(idMarca);        
         return " deletado com sucesso!";
     }    

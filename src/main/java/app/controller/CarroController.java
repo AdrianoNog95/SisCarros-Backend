@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import app.service.CarroService;
 
 @RestController
 @RequestMapping("/api/carro")
+@CrossOrigin("*")
 public class CarroController {
 
     @Autowired
@@ -33,10 +35,11 @@ public class CarroController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }  
     }
+
     
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable long id) {
+    public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable Integer id) {
         try {
             String mensagem = this.carroService.update(id, carro);
             return new ResponseEntity<String>(mensagem, HttpStatus.OK);
@@ -57,7 +60,7 @@ public class CarroController {
     
     
     @GetMapping("/findById/{idCarro}")
-    public ResponseEntity<Carro> findById(@PathVariable long idCarro) { 
+    public ResponseEntity<Carro> findById(@PathVariable Integer idCarro) { 
         try {
             Carro carro = this.carroService.findById(idCarro);
             return new ResponseEntity<>(carro, HttpStatus.OK);
@@ -68,7 +71,7 @@ public class CarroController {
     
        
     @DeleteMapping("/delete/{idCarro}")
-    public ResponseEntity<String> delete (@PathVariable long idCarro) {
+    public ResponseEntity<String> delete (@PathVariable Integer idCarro) {
         try {
             String mensagem = this.carroService.delete(idCarro);
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
