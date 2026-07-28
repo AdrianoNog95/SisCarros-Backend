@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ForeignKey;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
@@ -33,11 +35,24 @@ public class Carro {
      
     //Relacionamento
     @ManyToOne
+    @JoinColumn(
+	name = "id_marca",
+	foreignKey = @ForeignKey(name = "fk_carro_marca"))	
     private Marca marca;
     
        
     @ManyToMany
-    @JoinTable(name="carro_acessorio")
+    @JoinTable(
+        name = "carro_acessorio",
+        joinColumns = @JoinColumn(
+            name = "id_carro",
+            foreignKey = @ForeignKey(name = "fk_carro_acessorio_carro")
+        ),
+        inverseJoinColumns = @JoinColumn(
+            name = "id_acessorio",
+            foreignKey = @ForeignKey(name = "fk_carro_acessorio_acessorio")
+        )
+    )
     private List<Acessorio> acessorios;
 
 

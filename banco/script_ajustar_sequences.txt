@@ -1,0 +1,6 @@
+//Esses comandos servem para resincronizar as sequências de id's após uma restauração de dados.
+
+SELECT setval('carro_id_seq',      COALESCE((SELECT MAX(id) FROM carro), 1));
+SELECT setval('marca_id_seq',      COALESCE((SELECT MAX(id) FROM marca), 1));
+SELECT setval('acessorio_id_seq',  COALESCE((SELECT MAX(id) FROM acessorio), 1));
+SELECT setval('usuario_id_seq',    COALESCE((SELECT MAX(id) FROM usuario), 1));

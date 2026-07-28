@@ -1,0 +1,4 @@
+*Para fazer backup no PGAdmin (PostgreSQL) você só precisa selecionar onde quer salvar o arquivo .sql e o Role name como Postgre. Mantenha tudo padrão. Format: Custom, Enconding não precisa mexer, em Data Options não precisa mexer em nada, mesmo sem marcar a opção Data os dados do banco são recuperados normalmente.
+
+
+*O Restore somente selecione Role name Postgre e ok.
